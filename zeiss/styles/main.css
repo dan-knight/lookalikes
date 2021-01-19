@@ -7,7 +7,7 @@ html, body {
 
 body {
   background: #FFF;
-  font-family: "Proxima Nova";
+  font-family: proxima-nova, sans-serif;
   color: #000;
   font-size: 16px;
 }
