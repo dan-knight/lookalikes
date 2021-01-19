@@ -11,6 +11,10 @@ $outer-padding: 3rem;
 $divider-width: 0.125rem;
 $divider-color: $grey-light;
 
+$large-breakpoint: 1350px;
+$medium-breakpoint: 960px;
+$small-breakpoint: 850px;
+
 html, body {
   height: 100vh;
   width: 100vw;
@@ -117,6 +121,26 @@ li {
       margin: 0 1rem;
     }
   }
+
+  .hamburger {
+    display: none;
+  }
+
+  @media (max-width: $medium-breakpoint) {
+    .nav {
+      li {
+        display: none;
+      }
+    }
+
+    li.logo, .hamburger {
+      display: inline-block;
+    }
+
+    .user li {
+      margin: 0 0.5rem;
+    }
+  }
 }
 
 .main {
@@ -141,8 +165,7 @@ li {
 
 .search-products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
   row-gap: 3rem;
   column-gap: 4rem;
   align-items: flex-start;
@@ -157,13 +180,13 @@ li {
     }
   }
 
-  .header, .filters {
-    grid-column: 1 / 2;
-  }
+  // .header, .filters {
+  //   grid-column: 1 / 2;
+  // }
 
-  .topbar, .items {
-    grid-column: 2 / -1;
-  }
+  // .topbar, .items {
+  //   grid-column: 2 / -1;
+  // }
 
   .topbar {
     display: flex;
@@ -254,7 +277,7 @@ li {
   }
 
   .items {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     column-gap: 1rem;
     row-gap: 3rem;
 
@@ -333,6 +356,18 @@ li {
   h5 {
     margin-top: 0;
   }
+
+  @media (max-width: $large-breakpoint) {
+    text-align: center;
+
+    .sitemap {
+      display: none;
+    }
+
+    .social {
+      float: none;
+    }
+  }
 }
 
 .footer {
@@ -353,6 +388,26 @@ li {
 
     li {
       margin: 0 1.25rem;
+    }
+  }
+
+  @media (max-width: $small-breakpoint) {
+    text-align: center;
+
+    .legal {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $medium-breakpoint) {
+  .search-products {
+    .filters, .header {
+      display: none
+    }
+
+    .items, .topbar {
+      grid-column: 1 / -1;
     }
   }
 }
